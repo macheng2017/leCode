@@ -47,6 +47,25 @@ var twoSum = function(nums, target) {
 
 对每道题进行迭代,优化是我以后要多做的事情,不着急去解决其他问题,反正后面肯定有很多难度更高的题,像以前那样做过之后不总结,不复盘的话肯定会碰壁的,要多想一下这道题还有其他解决方法没有(这个道理还可以用在哪? 这个道理还可以怎么用? 有没有其他选项?),有很大概率一道题的其他解法就是下一道题的解题思路
 
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+         HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        for(int i = 0 ;i<nums.length; i++){
+               map.put(nums[i],i);
+        }
+        for(int i = 0; i<nums.length; i++){
+            int x = target - nums[i];
+            if ( map.containsKey(x) && map.get(x) != i){
+                return new int[]{map.get(x), i};
+            }
+        }
+         throw new IllegalArgumentException("No two sum solution");
+    }
+}
+
+```
+
 ```js
 /**
  * @param {number[]} nums
